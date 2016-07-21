@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
@@ -645,8 +646,17 @@ Log.e("state = "+Integer.toString(state),Integer.toString(END_GAME));
          try{
         	 if(mBitmap==null){
         	 mBitmap=BitmapFactory.decodeResource(getResources(),R.drawable.einstein);//einstein or mime
+				 float scaleX=(getWidth()/(float)(mBitmap.getWidth()+mBitmap.getWidth()/15));
+				 float scaleY=(getHeight()/(float)(mBitmap.getHeight()+mBitmap.getHeight()/15));
+
+				 mBitmap=getResizedBitmap(mBitmap,scaleX,scaleY);
+				 canvas.drawBitmap(mBitmap, 0, getHeight()/20,paint);
         	 }
-				canvas.drawBitmap(mBitmap, 0, getHeight()/20,paint);
+
+
+
+
+
          }catch(OutOfMemoryError e){
 	
           }			
@@ -662,7 +672,7 @@ Log.e("state = "+Integer.toString(state),Integer.toString(END_GAME));
 				if (currentRoundCounter == totalRounds) {
 					paint.setColor(Color.BLACK);
 					paint.setTextSize(20);
-					canvas.drawText("τελευταιος γυρος", getWidth() / 5,
+					canvas.drawText("Τελευταιος γυρος", getWidth() / 5,
 							getHeight() - getHeight() / 10, paint);
 				}
 				paint.setTextSize(getWidth()/10);
@@ -684,19 +694,36 @@ Log.e("state = "+Integer.toString(state),Integer.toString(END_GAME));
 			paint.setColor(Color.BLACK);
 			paint.setTextSize(getWidth()/15);
 			if (playerOneTotalScore > playerTwoTotalScore) {
-				canvas.drawText("ο παιχτης 1 ειναι ο νικητης", getWidth() / 10,
+				canvas.drawText("Ο παιχτης 1 ειναι ο νικητης", getWidth() / 10,
 						getHeight() - getHeight() / 10, paint);
 			} else if (playerOneTotalScore < playerTwoTotalScore) {
-				canvas.drawText("ο παιχτης 2 ειναι ο νικητης", getWidth() / 10,
+				canvas.drawText("Ο παιχτης 2 ειναι ο νικητης", getWidth() / 10,
 						getHeight() - getHeight() / 10, paint);
 			} else {
-				canvas.drawText("εχουμε ισοπαλια", getWidth() / 10, getHeight()
+				canvas.drawText("Εχουμε ισοπαλια", getWidth() / 10, getHeight()
 						- getHeight() / 10, paint);
 			}
 			
 			paint.setColor(Color.BLUE);
 			canvas.drawText(Integer.toString(playerOneTotalScore)+"  -   "+Integer.toString(playerTwoTotalScore), getWidth()/2, getHeight() - getHeight() / 25, paint);
 		}
+	}
+
+	public Bitmap getResizedBitmap(Bitmap bm, float scaleX, float scaleY) {
+		int width = bm.getWidth();
+		int height = bm.getHeight();
+//		float scaleWidth = ((float) newWidth) / width;
+//		float scaleHeight = ((float) newHeight) / height;
+		// CREATE A MATRIX FOR THE MANIPULATION
+		Matrix matrix = new Matrix();
+		// RESIZE THE BIT MAP
+		matrix.postScale(scaleX, scaleY);
+
+		// "RECREATE" THE NEW BITMAP
+		Bitmap resizedBitmap = Bitmap.createBitmap(
+				bm, 0, 0, width, height, matrix, false);
+		bm.recycle();
+		return resizedBitmap;
 	}
 
 	/**

@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.Log;
 import android.view.View;
@@ -58,8 +59,8 @@ public class Mix extends ViewGroup {
 		wrong.setOnClickListener(correctButtonListener);
 		correct.setBackgroundResource(R.drawable.crct);
 		wrong.setBackgroundResource(R.drawable.wrg);
-		next.setText("συνέχεια");
-		menu.setText("μενού");
+		next.setText("Συνέχεια");
+		menu.setText("Μενού");
 		menu.setOnClickListener(menuButtonListener);
 		addButtons();
 		next.setOnClickListener(nextListener);
@@ -281,8 +282,13 @@ public class Mix extends ViewGroup {
 			try{
 				if(mBitmap==null){
 				mBitmap=BitmapFactory.decodeResource(getResources(),R.drawable.micman);
+					float scaleX=(getWidth()/(float)(mBitmap.getWidth()+mBitmap.getWidth()/15));
+					float scaleY=(getHeight()/(float)(mBitmap.getHeight()+mBitmap.getHeight()/15));
+
+					mBitmap=getResizedBitmap(mBitmap,scaleX,scaleY);
+					canvas.drawBitmap(mBitmap, getWidth()/10, getHeight()/8,paint);
+
 				}
-			canvas.drawBitmap(mBitmap, getWidth()/10, getHeight()/8,paint);
 			}catch(OutOfMemoryError e){}
 			paint.setTextSize(20);
 			if (isTeamATurn) {
@@ -296,7 +302,7 @@ public class Mix extends ViewGroup {
 			}
 			paint.setTextSize(getWidth()/30);
 			paint.setColor(Color.BLACK);
-			canvas.drawText("(πάτα συνέχεια , για να εμφανιστει η ερωτηση)",
+			canvas.drawText("(Πάτα συνέχεια , για να εμφανιστει η ερωτηση)",
 					getWidth() / 10, getHeight() / 10, paint);
 
 		}
@@ -315,15 +321,15 @@ public class Mix extends ViewGroup {
 			}catch(OutOfMemoryError e){}
 			paint.setTextSize(getWidth()/15);
 			if (scoreATeam > scoreBTeam) {
-				canvas.drawText("ο παιχτης 1 ειναι ο νικητης : " , getWidth() / 10,
+				canvas.drawText("Ο παιχτης 1 ειναι ο νικητης : " , getWidth() / 10,
 						getHeight() - getHeight() / 6, paint);
 				
 				
 			} else if (scoreATeam < scoreBTeam) {
-				canvas.drawText("ο παιχτης 2 ειναι ο νικητης", getWidth() / 10,
+				canvas.drawText("Ο παιχτης 2 ειναι ο νικητης", getWidth() / 10,
 						getHeight() - getHeight() / 6, paint);
 			} else {
-				canvas.drawText("εχουμε ισοπαλια", getWidth() / 10, getHeight()
+				canvas.drawText("Εχουμε ισοπαλια", getWidth() / 10, getHeight()
 						- getHeight() / 6, paint);
 			
 			}
@@ -335,6 +341,22 @@ public class Mix extends ViewGroup {
 		}
 	}
 
+	public Bitmap getResizedBitmap(Bitmap bm, float scaleX, float scaleY) {
+		int width = bm.getWidth();
+		int height = bm.getHeight();
+//		float scaleWidth = ((float) newWidth) / width;
+//		float scaleHeight = ((float) newHeight) / height;
+		// CREATE A MATRIX FOR THE MANIPULATION
+		Matrix matrix = new Matrix();
+		// RESIZE THE BIT MAP
+		matrix.postScale(scaleX, scaleY);
+
+		// "RECREATE" THE NEW BITMAP
+		Bitmap resizedBitmap = Bitmap.createBitmap(
+				bm, 0, 0, width, height, matrix, false);
+		bm.recycle();
+		return resizedBitmap;
+	}
 	public ArrayList<String> getQuizes(){
 		return quizQuestions;
 	}
