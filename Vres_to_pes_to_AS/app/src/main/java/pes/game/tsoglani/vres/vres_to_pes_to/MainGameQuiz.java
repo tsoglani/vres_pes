@@ -642,16 +642,16 @@ Log.e("state = "+Integer.toString(state),Integer.toString(END_GAME));
 
 			if (state == READY_TO_START) {
 				paint.setColor(Color.RED);
-				paint.setTextSize(20);
+				paint.setTextSize(50);
+
          try{
-        	 if(mBitmap==null){
         	 mBitmap=BitmapFactory.decodeResource(getResources(),R.drawable.einstein);//einstein or mime
 				 float scaleX=(getWidth()/(float)(mBitmap.getWidth()+mBitmap.getWidth()/15));
 				 float scaleY=(getHeight()/(float)(mBitmap.getHeight()+mBitmap.getHeight()/15));
 
 				 mBitmap=getResizedBitmap(mBitmap,scaleX,scaleY);
 				 canvas.drawBitmap(mBitmap, 0, getHeight()/20,paint);
-        	 }
+
 
 
 
@@ -661,14 +661,14 @@ Log.e("state = "+Integer.toString(state),Integer.toString(END_GAME));
 	
           }			
          if(Mix.isMixSelected){
-        	 paint.setTextSize(getWidth()/15);
+        	 paint.setTextSize(getWidth()/10);
 				paint.setColor(Color.BLUE);
 				canvas.drawText("Σου έτυχε quiz ", getWidth() / 30,
 						getHeight() / 5, paint);
 			}else{
 				canvas.drawText(
 						"round " + Integer.toString(currentRoundCounter),
-						getWidth() / 5, getHeight() - getHeight() / 5, paint);
+						getWidth() / 10, getHeight() - getHeight() / 3, paint);
 				if (currentRoundCounter == totalRounds) {
 					paint.setColor(Color.BLACK);
 					paint.setTextSize(20);
@@ -723,6 +723,7 @@ Log.e("state = "+Integer.toString(state),Integer.toString(END_GAME));
 		Bitmap resizedBitmap = Bitmap.createBitmap(
 				bm, 0, 0, width, height, matrix, false);
 		bm.recycle();
+		System.gc();
 		return resizedBitmap;
 	}
 

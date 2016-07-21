@@ -6,6 +6,8 @@
 
 
     <uses-feature android:name="android.hardware.screen.portrait"/>
+    <uses-feature android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+
     <!-- Mandatory permission -->
 
 

@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.Log;
 import android.view.View;
@@ -1303,11 +1304,11 @@ public class PandomimaGameView extends ViewGroup {
 				txt1 = "Ομάδα Α, πάτα συνέχεια  ";
 				forGroundColor = Color.BLUE;
 				try {
-					if (teamABitmap == null) {
-						teamABitmap = teamABitmap = BitmapFactory
-								.decodeResource(getResources(),
+//					if (teamABitmap == null) {
+	teamABitmap  = BitmapFactory
+			.decodeResource(getResources(),
 										R.drawable.teama);
-					}
+//					}
 					mBitmap = teamABitmap;
 				} catch (OutOfMemoryError e) {
 				}
@@ -1315,17 +1316,20 @@ public class PandomimaGameView extends ViewGroup {
 				txt1 = "Ομάδα Β, πάτα συνέχεια ";
 				forGroundColor = Color.DKGRAY;
 				try {
-					if (teamBBitmap == null) {
+
 						teamBBitmap = BitmapFactory.decodeResource(
 								getResources(), R.drawable.bteam3);
-					}
+
 					mBitmap = teamBBitmap;
 				} catch (OutOfMemoryError e) {
 				}
 			}
-			if (mBitmap != null) {
+				float scaleX=(getWidth()/(float)(mBitmap.getWidth()+mBitmap.getWidth()/10));
+				float scaleY=(getHeight()/(float)(2*mBitmap.getHeight()));
+
+				mBitmap=getResizedBitmap(mBitmap,scaleX,scaleY);
 				canvas.drawBitmap(mBitmap, 0, getHeight() / 4, paint);
-			}
+
 			paint.setTextSize(getWidth() / 15);
 			paint.setColor(forGroundColor);
 			canvas.drawText(txt1, 0, getHeight() / 10, paint);
@@ -1367,6 +1371,30 @@ public class PandomimaGameView extends ViewGroup {
 			}
 		}
 
+	}
+
+	public Bitmap getResizedBitmap(Bitmap bm, float scaleX, float scaleY) {
+		Bitmap resizedBitmap;
+		try{
+		int width = bm.getWidth();
+		int height = bm.getHeight();
+//		float scaleWidth = ((float) newWidth) / width;
+//		float scaleHeight = ((float) newHeight) / height;
+		// CREATE A MATRIX FOR THE MANIPULATION
+		Matrix matrix = new Matrix();
+		// RESIZE THE BIT MAP
+		matrix.postScale(scaleX, scaleY);
+
+		// "RECREATE" THE NEW BITMAP
+		 resizedBitmap = Bitmap.createBitmap(
+				bm, 0, 0, width, height, matrix, false);
+		bm.recycle();
+		}catch (Exception e){
+e.printStackTrace();
+		resizedBitmap=bm;
+		}
+		System.gc();
+		return resizedBitmap;
 	}
 
 	public boolean isGameOver() {

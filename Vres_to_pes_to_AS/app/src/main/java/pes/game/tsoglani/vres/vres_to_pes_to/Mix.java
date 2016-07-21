@@ -277,18 +277,21 @@ public class Mix extends ViewGroup {
 
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
+
 		Paint paint = new Paint();
+
+
+
 		if (state == 0&&!isGameOver) {
 			try{
-				if(mBitmap==null){
 				mBitmap=BitmapFactory.decodeResource(getResources(),R.drawable.micman);
-					float scaleX=(getWidth()/(float)(mBitmap.getWidth()+mBitmap.getWidth()/15));
-					float scaleY=(getHeight()/(float)(mBitmap.getHeight()+mBitmap.getHeight()/15));
+					float scaleX=(getWidth()/(float)(mBitmap.getWidth()));
+					float scaleY=(getHeight()/(float)(mBitmap.getHeight()+mBitmap.getHeight()/10));
 
 					mBitmap=getResizedBitmap(mBitmap,scaleX,scaleY);
-					canvas.drawBitmap(mBitmap, getWidth()/10, getHeight()/8,paint);
+					canvas.drawBitmap(mBitmap, 0, 0,paint);
 
-				}
+
 			}catch(OutOfMemoryError e){}
 			paint.setTextSize(20);
 			if (isTeamATurn) {
@@ -355,6 +358,7 @@ public class Mix extends ViewGroup {
 		Bitmap resizedBitmap = Bitmap.createBitmap(
 				bm, 0, 0, width, height, matrix, false);
 		bm.recycle();
+		System.gc();
 		return resizedBitmap;
 	}
 	public ArrayList<String> getQuizes(){
