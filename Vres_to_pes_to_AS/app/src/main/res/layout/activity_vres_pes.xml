@@ -74,15 +74,15 @@
             android:layout_marginTop="44dp"
             android:text="τυχαιοι ποντοι" />
 
-        <CheckBox
-            android:id="@+id/checkBox1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/checkBoxRandomPoints"
-            android:layout_alignBottom="@+id/checkBoxRandomPoints"
-            android:layout_alignParentLeft="true"
-            android:checked="true"
-            android:text="Διαφημίσεις" />
+        <!--<CheckBox-->
+            <!--android:id="@+id/checkBox1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBaseline="@+id/checkBoxRandomPoints"-->
+            <!--android:layout_alignBottom="@+id/checkBoxRandomPoints"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:checked="true"-->
+            <!--android:text="Διαφημίσεις" />-->
 
     </RelativeLayout>
 

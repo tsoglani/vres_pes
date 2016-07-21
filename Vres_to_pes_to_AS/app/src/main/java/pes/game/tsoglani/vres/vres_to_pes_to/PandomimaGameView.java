@@ -90,6 +90,8 @@ public class PandomimaGameView extends ViewGroup {
 		continueButton.setOnClickListener(continueButtonListener);
 		setWillNotDraw(false);
 		correct.setBackgroundResource(R.drawable.crct);
+
+
 		wrong.setBackgroundResource(R.drawable.wrg);
 
 		if (!Mix.isMixSelected) {
@@ -1213,14 +1215,17 @@ public class PandomimaGameView extends ViewGroup {
 				child.layout(0, 0, r, getHeight() / 7);
 			}
 
+			int round=r / 2;
+
 			if (child == correct) {
 
-				child.layout(getWidth() / 5, getHeight() / 10, r / 2 + r / 3,
-						getHeight() / 2);
+				child.layout(getWidth() / 2-round/2, getHeight() / 6,  getWidth() / 2+round/2,
+						getHeight() / 6+round);
 			}
 			if (child == wrong) {
-				child.layout(getWidth() / 5, getHeight() / 2, r / 2 + r / 3,
-						getHeight() / 2 + getHeight() / 3);
+				child.layout(getWidth() / 2-round/2, getHeight() / 5+round, getWidth() / 2+round/2,
+						2*(round)+ getHeight() / 5);
+
 			}
 
 			for (int j = 0; j < choseTypeOfQuestion.length; j++) {
@@ -1345,7 +1350,12 @@ public class PandomimaGameView extends ViewGroup {
 					gameOverBitmap = BitmapFactory.decodeResource(
 							getResources(), R.drawable.wnr);
 				}
-				mBitmap = gameOverBitmap;
+				mBitmap = 	gameOverBitmap = BitmapFactory.decodeResource(
+						getResources(), R.drawable.wnr);
+				float scaleX=(getWidth()/(float)(mBitmap.getWidth()+mBitmap.getWidth()/10));
+				float scaleY=(getHeight()/(float)(3*mBitmap.getHeight()));
+
+				mBitmap=getResizedBitmap(mBitmap,scaleX,scaleY);
 				canvas.drawBitmap(mBitmap, 0, 0, paint);
 			} catch (OutOfMemoryError e) {
 			}

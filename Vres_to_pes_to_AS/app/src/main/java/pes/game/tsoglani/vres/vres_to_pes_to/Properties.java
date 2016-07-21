@@ -28,7 +28,7 @@ public class Properties  {
 	  private Spinner spinner1, spinner2;
 	  private Button btnSubmit;
 	  private Button canselButton;
-	  private CheckBox checkBoxSetRandomPointsPerAnswer, adsCheckbox;
+	  private CheckBox checkBoxSetRandomPointsPerAnswer;
 	  private Database db;
 	public Properties(VresPesActivity context) {
 		this.context=context;
@@ -70,7 +70,7 @@ public class Properties  {
 		spinner2 = (Spinner) context.findViewById(R.id.spinner2);
 		spinner1 = (Spinner) context.findViewById(R.id.spinner1);
 		spinner2 = (Spinner) context.findViewById(R.id.spinner2);
-		adsCheckbox=(CheckBox)context.findViewById(R.id.checkBox1);
+//		adsCheckbox=(CheckBox)context.findViewById(R.id.checkBox1);
 		btnSubmit = (Button) context.findViewById(R.id.btnSubmit);
 		canselButton=(Button)context.findViewById(R.id.button1);
 		checkBoxSetRandomPointsPerAnswer= (CheckBox)context.findViewById(R.id.checkBoxRandomPoints);
@@ -111,8 +111,8 @@ public class Properties  {
 				MainGameQuiz.isUsingRandomScore=checkBoxSetRandomPointsPerAnswer.isChecked();
                 Database db= new Database(context);
                 
-                VresPesActivity.isAddShowing=adsCheckbox.isChecked();
-                db.addContact(MainGameQuiz.totalRounds,MainGameQuiz.totalTime, adsCheckbox.isChecked());
+//                VresPesActivity.isAddShowing=adsCheckbox.isChecked();
+//                db.addContact(MainGameQuiz.totalRounds,MainGameQuiz.totalTime, adsCheckbox.isChecked());
 				
 				db.close();
 				context.getMyMenu().makeContinueButtonVisible(false);
