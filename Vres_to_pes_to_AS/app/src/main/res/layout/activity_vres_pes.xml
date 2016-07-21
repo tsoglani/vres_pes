@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.63" >
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="18dp"
+            android:layout_marginRight="48dp"
+            android:text="αποθηκευση" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/btnSubmit"
+            android:layout_centerVertical="true"
+            android:entries="@array/time_arrays"
+            android:prompt="@string/time_prompt" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/btnSubmit" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/spinner2"
+            android:layout_alignBottom="@+id/spinner2"
+            android:layout_toLeftOf="@+id/spinner2"
+            android:text="επελεξε γυρους"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/spinner1"
+            android:layout_alignBottom="@+id/spinner1"
+            android:layout_alignLeft="@+id/textView1"
+            android:text="ωρα ανα γυρο"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/btnSubmit"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/btnSubmit"
+            android:layout_marginLeft="21dp"
+            android:text="ακυρωση" />
+
+        <CheckBox
+            android:id="@+id/checkBoxRandomPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/spinner1"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="44dp"
+            android:text="τυχαιοι ποντοι" />
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/checkBoxRandomPoints"
+            android:layout_alignBottom="@+id/checkBoxRandomPoints"
+            android:layout_alignParentLeft="true"
+            android:checked="true"
+            android:text="Διαφημίσεις" />
+
+    </RelativeLayout>
+
+</LinearLayout>
