@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Vres_to_pes_to.iml" filepath="$PROJECT_DIR$/Vres_to_pes_to.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vres_to_pes_to_AS.iml" filepath="$PROJECT_DIR$/Vres_to_pes_to_AS.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
