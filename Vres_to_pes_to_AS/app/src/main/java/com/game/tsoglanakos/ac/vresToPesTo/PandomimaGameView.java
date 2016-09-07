@@ -1,11 +1,10 @@
-package pes.game.tsoglani.vres.vres_to_pes_to;
+package com.game.tsoglanakos.ac.vresToPesTo;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -1198,12 +1197,12 @@ public class PandomimaGameView extends ViewGroup {
 						- getHeight() / 7, r - getWidth() / 30, b - getHeight()
 						/ 30);
 
-				continueButton.setTextSize(continueButton.getHeight() / 5);
+				continueButton.setTextSize(continueButton.getHeight() / 10);
 			}
 			if (child == menuButton) {
 				child.layout(getWidth() / 10, getHeight() - getHeight() / 7,
 						getWidth() / 2 - getWidth() / 30, b - getHeight() / 30);
-				menuButton.setTextSize(menuButton.getHeight() / 5);
+				menuButton.setTextSize(menuButton.getHeight() / 10);
 
 			}
 

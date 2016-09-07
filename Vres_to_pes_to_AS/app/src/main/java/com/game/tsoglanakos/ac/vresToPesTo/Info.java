@@ -1,7 +1,6 @@
-package pes.game.tsoglani.vres.vres_to_pes_to;
+package com.game.tsoglanakos.ac.vresToPesTo;
 
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 
 public class Info extends ViewGroup{
 private Button goBack;

@@ -1,4 +1,4 @@
-package pes.game.tsoglani.vres.vres_to_pes_to;
+package com.game.tsoglanakos.ac.vresToPesTo;
 
 import android.content.Context;
 import android.graphics.Color;

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.0"
 
     defaultConfig {
-        applicationId "pes.game.tsoglani.vres.vres_to_pes_to"
+        applicationId "com.game.tsoglanakos.vresToPesTo"
         minSdkVersion 13
         targetSdkVersion 24
         versionCode 1

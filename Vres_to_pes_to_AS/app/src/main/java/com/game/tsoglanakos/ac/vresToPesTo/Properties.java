@@ -1,21 +1,14 @@
-package pes.game.tsoglani.vres.vres_to_pes_to;
+package com.game.tsoglanakos.ac.vresToPesTo;
 
-import pes.game.tsoglani.vres.vres_to_pes_to.R;
 import java.util.ArrayList;
 import java.util.List;
 
 
-import android.content.Context;
-
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 

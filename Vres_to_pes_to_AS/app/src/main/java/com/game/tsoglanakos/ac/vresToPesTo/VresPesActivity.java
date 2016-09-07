@@ -1,11 +1,6 @@
-package pes.game.tsoglani.vres.vres_to_pes_to;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+package com.game.tsoglanakos.ac.vresToPesTo;
 
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.Vibrator;
@@ -15,21 +10,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.res.AssetFileDescriptor;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 public class VresPesActivity extends Activity {
     private FrameLayout frameLayout;

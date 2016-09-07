@@ -1,16 +1,12 @@
-package pes.game.tsoglani.vres.vres_to_pes_to;
-import android.content.Context;
+package com.game.tsoglanakos.ac.vresToPesTo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.PowerManager;
-import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 

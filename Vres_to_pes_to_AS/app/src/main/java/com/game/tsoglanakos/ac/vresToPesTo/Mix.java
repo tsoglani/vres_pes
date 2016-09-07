@@ -1,8 +1,8 @@
-package pes.game.tsoglani.vres.vres_to_pes_to;
+package com.game.tsoglanakos.ac.vresToPesTo;
 
 import java.util.ArrayList;
 import java.util.Random;
-import android.content.Context;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -12,7 +12,6 @@ import android.graphics.Paint;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class Mix extends ViewGroup {
@@ -230,11 +229,11 @@ public class Mix extends ViewGroup {
 			}
 			if (child == next) {
 				child.layout(r / 2 + r / 10, b / 2 + b / 3 + b / 11, r, b);
-				next.setTextSize(next.getHeight()/5);
+				next.setTextSize(next.getHeight()/10);
 			}
 			if (child == menu) {
 				child.layout(r / 20, b / 2 + b / 3 + b / 11, r / 3, b);
-				menu.setTextSize(menu.getHeight()/5);
+				menu.setTextSize(menu.getHeight()/10);
 			}
             if (child == correct) {
 				

@@ -1,11 +1,9 @@
-package pes.game.tsoglani.vres.vres_to_pes_to;
+package com.game.tsoglanakos.ac.vresToPesTo;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 
-
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -13,7 +11,6 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -601,7 +598,7 @@ Log.e("state = "+Integer.toString(state),Integer.toString(END_GAME));
 		int sz= b-b / 2 + b / 3 + b / 11;
 			if (child == nextButton) {
 				child.layout(r / 2 + r / 10, b / 2 + b / 3 + b / 11, r, b);
-				nextButton.setTextSize(nextButton.getHeight()/5
+				nextButton.setTextSize(nextButton.getHeight()/10
 				);
 				
 			}
@@ -609,7 +606,7 @@ Log.e("state = "+Integer.toString(state),Integer.toString(END_GAME));
 			
 			if (child == menuButton) {
 				child.layout(r / 20, b / 2 + b / 3 + b / 11, r / 3, b);
-				menuButton.setTextSize(menuButton.getHeight()/5);
+				menuButton.setTextSize(menuButton.getHeight()/10);
 			
 			}
 		//	for(int j=0; j<20;j++){
