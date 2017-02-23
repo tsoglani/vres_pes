@@ -140,17 +140,18 @@ public class Mix extends ViewGroup {
 		public void onClick(View v) {
 			state++;
 			state = state % 2;
-		
+			Log.e("state",""+state);
+
 			if (state == 0) {
 				isTeamATurn = !isTeamATurn;
 				if(isTeamATurn){
 					round++;
 				}
-
-			}
-			if (state == 1) {
+			}	else	if (state == 1) {
 				Random rand= new Random();
 				Boolean isPandomimaMode=rand.nextBoolean();
+
+				Log.e("isPandomimaMode",""+isPandomimaMode);
 				if(isPandomimaMode){
 					addPandomimeMode();
 				}else{
@@ -171,8 +172,8 @@ public class Mix extends ViewGroup {
 				
 			//Log.e(Integer.toString(state), "fucking state");
 			setBackgroundColor(Color.WHITE);
-			
-			
+
+
 			context.activateLight();
 		}
 	};
